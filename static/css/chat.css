@@ -1,0 +1,52 @@
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+    background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional: Add a subtle overlay pattern (ensure you have chat-bg.png in your images folder) */
+.chat-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: url('/static/images/chat-bg.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+/* Ensure inner content is above the overlay */
+.chat-container > * {
+    position: relative;
+    z-index: 1;
+}
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.chatbot-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 20%;
+  object-fit: cover;
+}
+

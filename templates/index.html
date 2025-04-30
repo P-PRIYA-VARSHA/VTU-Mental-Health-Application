@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+  <h1>WELCOME TO VTU MENTAL HEALTH APPLICATION  </h1>
+  {% if logged_in %}
+    <p class="welcome-message">Hello, {{ session.username }}!</p>
+  {% endif %}
+</div>
+
+<div class="button-group">
+  {% if logged_in %}
+    <a href="{{ url_for('survey') }}"><button>Take Survey</button></a>
+<a href="{{ url_for('breathing_exercise') }}"><button>Breathing Exercise</button></a>
+<a href="{{ url_for('dashboard') }}"><button>Dashboard</button></a>
+<a href="{{ url_for('mood_tracker') }}"><button>Go to Mood Tracker</button></a>
+
+
+    <a href="{{ url_for('chat') }}"><button>Chat Support</button></a>
+<a href="{{ url_for('blog') }}"><button>Daily Planning</button></a>
+    <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+  {% else %}
+    <a href="{{ url_for('login') }}"><button>Login</button></a>
+    <a href="{{ url_for('signup') }}"><button>Sign Up</button></a>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Inline CSS for custom signup page design with transparent outer and inner containers -->
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('/static/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Outer container: larger, semi-transparent */
+.outer-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.6); /* Adjust transparency as needed */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    width: 90%;
+}
+
+/* Left and right sides */
+.left-side, .right-side {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Left side: Branding & About Us modal */
+.left-side {
+    border-right: 1px solid #ddd;
+    text-align: center;
+}
+
+.left-side h1 {
+    margin-top: 0;
+    font-size: 48px;
+    color: #2c3e50;
+}
+
+.left-side p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.left-side button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.left-side button:hover {
+    background-color: #2980b9;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Right side: Inner container for the sign-up form with transparency */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent inner container */
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #2c3e50;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #2980b9;
+}
+
+.login-container p {
+    text-align: center;
+    font-size: 16px;
+}
+
+.login-container a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .outer-container {
+        flex-direction: column;
+        max-width: 90%;
+    }
+    .left-side {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+}
+</style>
+
+<div class="outer-container">
+  <!-- Left Side: Branding and About Us Modal -->
+  <div class="left-side">
+    <h1>VTU MENTAL HEALTH APPLICATION</h1>
+    <p>Your mental stress buster partner! <span style="font-size:18px;">😊</span></p>
+    <button type="button" class="about-btn" onclick="openModal()">About Us</button>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>
+          Our mission is to empower students with early detection and personalized mental health support. We use advanced AI and interactive surveys to identify signs of stress and anxiety, offering tailored recommendations such as mindfulness practices, yoga, and professional counseling. We prioritize user privacy and ethical data handling to create a secure environment, and together, we foster a supportive community where every student can thrive.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Right Side: Sign Up Form -->
+  <div class="right-side">
+    <div class="login-container">
+      <h2>Sign Up</h2>
+      <form id="signupform" method="post">
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- jQuery Form Validation and Modal Scripts -->
+<script>
+  function openModal() {
+    document.getElementById('myModal').style.display = "block";
+  }
+  function closeModal() {
+    document.getElementById('myModal').style.display = "none";
+  }
+
+  $(document).ready(function() {
+    $('#signupform').submit(function(event) {
+      event.preventDefault();
+      var username = $('#username').val();
+      var email = $('#email').val();
+      var password = $('#password').val();
+      var confirmPassword = $('#confirm_password').val();
+      
+      // Validate passwords match
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+      
+      // Normally, you'd send the form data to your server.
+      // For demonstration, we simulate successful signup:
+      alert("Sign-up successful! You can now log in.");
+      window.location.href = "{{ url_for('login') }}";
+    });
+  });
+</script>
+{% endblock %}

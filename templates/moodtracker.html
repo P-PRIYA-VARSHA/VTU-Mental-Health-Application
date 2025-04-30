@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .hidden { display: none; }
+        .mood-grid { display: flex; gap: 8px; cursor: pointer; }
+        .mood-item { padding: 8px; border: 1px solid #ccc; border-radius: 5px; }
+        .breathing-container, .chat-container { text-align: center; }
+        .breathing-circle { width: 100px; height: 100px; border-radius: 50%; background: lightblue; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body onload="initMoodChart()">
+    <div id="moodSection" class="section">
+        <h2>How are you feeling today?</h2>
+        <div class="mood-grid">
+            <div class="mood-item" data-mood="5">😊 Very Happy</div>
+            <div class="mood-item" data-mood="4">🙂 Happy</div>
+            <div class="mood-item" data-mood="3">😐 Neutral</div>
+            <div class="mood-item" data-mood="2">🙁 Sad</div>
+            <div class="mood-item" data-mood="1">😢 Very Sad</div>
+        </div>
+        <canvas id="moodChart"></canvas>
+    </div>
+
+    <div id="dashboard" class="section">
+        <h2>Mood Dashboard</h2>
+        <canvas id="dashboardChart"></canvas>
+    </div>
+
+    <div id="breathingSection" class="section hidden">
+        <h2>Breathing Exercise</h2>
+        <div class="breathing-container">
+            <div class="breathing-circle">
+                <span id="breathingTimer">60</span>
+            </div>
+            <p id="breathingText">Click to start</p>
+            <button id="startBreathing" class="btn btn-primary">Start Exercise</button>
+        </div>
+    </div>
+
+    <div id="chatSection" class="section hidden">
+        <h2>Chat Support</h2>
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button class="btn btn-primary" id="sendMessage">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let moodChart = null;
+        let dashboardChart = null;
+        const db = { moods: [] };
+        const currentUser = { id: 1 };
+
+        function initMoodChart() {
+            const ctx = document.getElementById('moodChart').getContext('2d');
+            moodChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Mood Over Time',
+                        data: [],
+                        borderColor: '#4CAF50',
+                        tension: 0.1
+                    }]
+                },
+                options: { responsive: true, scales: { y: { min: 1, max: 5, ticks: { stepSize: 1 } } } }
+            });
+
+            const dashboardCtx = document.getElementById('dashboardChart').getContext('2d');
+            dashboardChart = new Chart(dashboardCtx, {
+                type: 'bar',
+                data: { labels: [], datasets: [{ label: 'Mood Stats', data: [], backgroundColor: '#4CAF50' }] },
+                options: { responsive: true }
+            });
+        }
+
+        function logMood(mood) {
+            const moodLog = { userId: currentUser.id, mood: parseInt(mood), timestamp: new Date() };
+            db.moods.push(moodLog);
+            updateMoodChart();
+            updateDashboardChart();
+        }
+
+        function updateMoodChart() {
+            const userMoods = db.moods.filter(m => m.userId === currentUser.id);
+            moodChart.data.labels = userMoods.map(m => m.timestamp.toLocaleTimeString());
+            moodChart.data.datasets[0].data = userMoods.map(m => m.mood);
+            moodChart.update();
+        }
+
+        function updateDashboardChart() {
+            const moodCounts = [0, 0, 0, 0, 0];
+            db.moods.forEach(m => moodCounts[m.mood - 1]++);
+            dashboardChart.data.labels = ['Very Sad', 'Sad', 'Neutral', 'Happy', 'Very Happy'];
+            dashboardChart.data.datasets[0].data = moodCounts;
+            dashboardChart.update();
+        }
+
+        document.querySelectorAll('.mood-item').forEach(item => {
+            item.addEventListener('click', function() { logMood(this.dataset.mood); });
+        });
+    </script>
+</body>
+</html>

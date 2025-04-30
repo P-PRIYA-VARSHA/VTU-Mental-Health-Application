@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breathing Exercise</title>
+  <style>
+    /* Breathing Exercise Styles */
+    .breathing-container {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .breathing-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto;
+      background-color: #4CAF50;
+      transition: transform 4s ease-in-out, background-color 4s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      color: white;
+    }
+
+    /* Optional: Basic reset for body */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <!-- Breathing Exercise Section -->
+  <div id="breathingSection" class="section">
+    <h2>Breathing Exercise</h2>
+    <div class="breathing-container">
+      <div class="breathing-circle">
+        <span id="breathingTimer">60</span>
+      </div>
+      <p id="breathingText">Click to start</p>
+      <button id="startBreathing" class="btn btn-primary">Start Exercise</button>
+    </div>
+  </div>
+
+  <script>
+    // Initialize variables
+    let timeLeft = 60;
+    let breathingInterval;
+    let breathingTimer;
+    let isBreathingActive = false;
+    
+    // Get element references
+    const breathingCircle = document.querySelector('.breathing-circle');
+    const breathingText = document.getElementById('breathingText');
+    const timerDisplay = document.getElementById('breathingTimer');
+    const startButton = document.getElementById('startBreathing');
+    
+    // Function to start the breathing exercise
+    function startBreathing() {
+      if (isBreathingActive) return; // Prevent multiple intervals
+      isBreathingActive = true;
+      let phase = 'inhale';
+      timeLeft = 60;
+      timerDisplay.textContent = timeLeft;
+      breathingCircle.style.transform = 'scale(1)';
+      
+      // Change phase every 4 seconds
+      breathingInterval = setInterval(() => {
+        if (phase === 'inhale') {
+          breathingCircle.style.transform = 'scale(1.5)';
+          breathingCircle.style.backgroundColor = '#4CAF50'; // Green for inhale
+          breathingText.textContent = 'Inhale...';
+          phase = 'exhale';
+        } else {
+          breathingCircle.style.transform = 'scale(1)';
+          breathingCircle.style.backgroundColor = '#2196F3'; // Blue for exhale
+          breathingText.textContent = 'Exhale...';
+          phase = 'inhale';
+        }
+      }, 4000);
+      
+      // Update timer every second
+      breathingTimer = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = timeLeft;
+        if (timeLeft <= 0) {
+          stopBreathing();
+          alert('Breathing exercise completed!');
+        }
+      }, 1000);
+      
+      startButton.textContent = 'Stop Exercise';
+    }
+    
+    // Function to stop the breathing exercise
+    function stopBreathing() {
+      clearInterval(breathingInterval);
+      clearInterval(breathingTimer);
+      breathingText.textContent = 'Click to start';
+      breathingCircle.style.transform = 'scale(1)';
+      breathingCircle.style.backgroundColor = '#4CAF50';
+      timerDisplay.textContent = '60';
+      timeLeft = 60;
+      startButton.textContent = 'Start Exercise';
+      isBreathingActive = false;
+    }
+    
+    // Toggle the breathing exercise on button click
+    startButton.addEventListener('click', () => {
+      if (!isBreathingActive) {
+        startBreathing();
+      } else {
+        stopBreathing();
+      }
+    });
+  </script>
+</body>
+</html>

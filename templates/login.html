@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Inline CSS for the custom login page design with two transparent containers -->
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('/static/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Outer container: larger, more spacious and transparent */
+.outer-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    width: 90%;
+}
+
+/* Left and right columns */
+.left-side, .right-side {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Left side styling (branding & modal) */
+.left-side {
+    border-right: 1px solid #ddd;
+    text-align: center;
+}
+
+.left-side h1 {
+    margin-top: 0;
+    font-size: 48px;
+    color: #2c3e50;
+}
+
+.left-side p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.left-side button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.left-side button:hover {
+    background-color: #0056b3;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Right side styling (login form) with transparency */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #2c3e50;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #0056b3;
+}
+
+.login-container p {
+    text-align: center;
+    font-size: 16px;
+}
+
+.login-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .outer-container {
+        flex-direction: column;
+        max-width: 90%;
+    }
+    .left-side {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+}
+</style>
+
+<div class="outer-container">
+  <!-- Left Side: Branding and About Us Modal -->
+  <div class="left-side">
+    <h1>VTU MENTAL HEALTH APPLICATION</h1>
+    <p>Your mental stress buster partner! <span style="font-size:18px;">😊</span></p>
+    <button type="button" class="about-btn" onclick="openModal()">About Us</button>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Our mission is to empower students with early detection and personalized mental health support. We use advanced AI and interactive surveys to identify signs of stress and anxiety, offering tailored recommendations such as mindfulness practices, yoga, and professional counseling. We prioritize user privacy and ethical data handling to create a secure environment, and together, we foster a supportive community where every student can thrive. For any assistants please contact email: vtu22628@veltech.edu.in,
+vtu22013@veltech.edu.in,vtu23357@veltech.edu.in</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Right Side: Login Form -->
+  <div class="right-side">
+    <div class="login-container">
+      <h2>Login</h2>
+      <form method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Modal -->
+<script>
+function openModal() {
+  document.getElementById('myModal').style.display = "block";
+}
+function closeModal() {
+  document.getElementById('myModal').style.display = "none";
+}
+</script>
+{% endblock %}

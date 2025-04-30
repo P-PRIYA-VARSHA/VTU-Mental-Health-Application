@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Mental Health Survey</h2>
+  <form method="post">
+    <label>1. How would you rate your mood today?</label>
+    <div class="options">
+      <input type="radio" name="q1" value="Good" required> Good  
+      <input type="radio" name="q1" value="Average" required> Average  
+      <input type="radio" name="q1" value="Bad" required> Bad  
+    </div>
+    <br>
+
+    <label>2. How is your energy level?</label>
+    <div class="options">
+      <input type="radio" name="q2" value="High" required> High  
+      <input type="radio" name="q2" value="Medium" required> Medium  
+      <input type="radio" name="q2" value="Low" required> Low  
+    </div>
+    <br>
+
+    <label>3. How well did you sleep last night?</label>
+    <div class="options">
+      <input type="radio" name="q3" value="Well" required> Well  
+      <input type="radio" name="q3" value="Poorly" required> Poorly  
+    </div>
+    <br>
+
+    <label>4. How are your stress levels?</label>
+    <div class="options">
+      <input type="radio" name="q4" value="Low" required> Low  
+      <input type="radio" name="q4" value="Moderate" required> Moderate  
+      <input type="radio" name="q4" value="High" required> High  
+    </div>
+    <br>
+
+    <label>5. How connected do you feel to others?</label>
+    <div class="options">
+      <input type="radio" name="q5" value="Connected" required> Connected  
+      <input type="radio" name="q5" value="Neutral" required> Neutral  
+      <input type="radio" name="q5" value="Isolated" required> Isolated  
+    </div>
+    <br>
+
+    <label>6. How would you rate your overall mental well-being?</label>
+    <div class="options">
+      <input type="radio" name="q6" value="Good" required> Good  
+      <input type="radio" name="q6" value="Average" required> Average  
+      <input type="radio" name="q6" value="Bad" required> Bad  
+    </div>
+    <br>
+    <button type="submit">Submit Survey</button>
+  </form>
+{% endblock %}
