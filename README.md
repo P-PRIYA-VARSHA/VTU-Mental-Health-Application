@@ -52,30 +52,30 @@ We developed an intelligent and proactive mental health application tailored for
 ---
 
 ### 🆕 Sign Up Page
-![Sign Up](sign up.png)
+![Sign Up](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/sign%20up.png)
 
 ---
 
 ### 🏠 Home / Front Page
-![Home Page](first page.png)
+![Home Page](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/first%20page.png)
 
 ---
 
 ### 📋 Mental Health Survey
-![Survey] (survey.png)
+![Survey] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/survey.png)
 
 ---
 
 ### 📈 Mood Tracker Dashboard
-![Mood Tracker](mood tracker.png)
+![Mood Tracker](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/mood%20tracker.png)
 
 ---
 
 ### 🤖 Chatbot & User Updates
-![Chatbot] (chat.png)
-![user Updates] (user updates.png)
-![Daily Schedules] (daily plans.png)
-![Relaxation exercise] (breathing.png)
+![Chatbot] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/chat.png)
+![user Updates] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/user%20updates.png)
+![Daily Schedules] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/daily%20plans.png)
+![Relaxation exercise] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/breathing.png)
 
 ---
 
