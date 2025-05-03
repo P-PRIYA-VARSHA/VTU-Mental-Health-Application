@@ -44,19 +44,54 @@ We developed an intelligent and proactive mental health application tailored for
 ---
 
 ## 📸 Screenshots & Demo
+## 📸 Screenshots
 
-> Upload the images in your GitHub repo (`/assets/` or `/screenshots/` folder) and replace the placeholders below with correct paths.
+### 🔐 Sign In Page
+![Sign In](sign in.png)
 
-| Feature                 | Screenshot |
-|-------------------------|------------|
-| 🔐 Sign In / Sign Up    | ![SignIn](screenshots/signin.png) ![SignUp](screenshots/signup.png) |
-| 🏠 Home / Front Page    | ![HomePage](screenshots/homepage.png) |
-| 📋 User Survey          | ![Survey](screenshots/survey.png) |
-| 📈 Mood Tracker         | ![MoodTracker](screenshots/mood_tracker.png) |
-| 🗣️ User Chatbot & Speech| ![Chatbot](screenshots/chatbot.png) |
-| 🌐 Multilingual Support | ![Language](screenshots/language_support.png) |
-| 🗃️ Database View (DB1)  | ![DB1](screenshots/db1.png) |
-| 🗃️ Database View (DB2)  | ![DB2](screenshots/db2.png) |
+---
+
+### 🆕 Sign Up Page
+![Sign Up](sign up.png)
+
+---
+
+### 🏠 Home / Front Page
+![Home Page](first page.png)
+
+---
+
+### 📋 Mental Health Survey
+![Survey] (survey.png)
+
+---
+
+### 📈 Mood Tracker Dashboard
+![Mood Tracker](mood tracker.png)
+
+---
+
+### 🤖 Chatbot & User Updates
+![Chatbot] (chat.png)
+![user Updates] (user updates.png)
+![Daily Schedules] (daily plans.png)
+![Relaxation exercise] (breathing.png)
+
+---
+
+
+
+---
+
+### 🗃️ Database View – DB1- shows user details
+![DB1]  (db1.png)
+
+---
+
+### 🗃️ Database View – DB2- shows daily planning database of user.
+![DB2] (db2.png)
+
+---
 
 ---
 
