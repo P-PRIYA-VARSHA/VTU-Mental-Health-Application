@@ -47,7 +47,7 @@ We developed an intelligent and proactive mental health application tailored for
 
 
 ### 🔐 Sign In Page
-![Sign In](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/sign in.png)
+![Sign In](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/sign%20in.png)
 
 ---
 
