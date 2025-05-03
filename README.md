@@ -62,7 +62,7 @@ We developed an intelligent and proactive mental health application tailored for
 ---
 
 ### 📋 Mental Health Survey
-![Survey] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/survey.png)
+![Survey](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/survey.png)
 
 ---
 
@@ -73,8 +73,11 @@ We developed an intelligent and proactive mental health application tailored for
 
 ### 🤖 Chatbot & User Updates
 ![Chatbot](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/chat.png)
+### USER UPDATES
 ![user Updates](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/user%20updates.png)
+### DAILY PLANS
 ![Daily Schedules](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/daily%20plans.png)
+### EXERCISE FOR PEACE OF MIND
 ![Relaxation exercise](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/breathing.png)
 
 ---
