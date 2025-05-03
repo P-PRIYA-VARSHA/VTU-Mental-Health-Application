@@ -72,10 +72,10 @@ We developed an intelligent and proactive mental health application tailored for
 ---
 
 ### 🤖 Chatbot & User Updates
-![Chatbot] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/chat.png)
-![user Updates] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/user%20updates.png)
-![Daily Schedules] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/daily%20plans.png)
-![Relaxation exercise] (https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/breathing.png)
+![Chatbot](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/chat.png)
+![user Updates](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/user%20updates.png)
+![Daily Schedules](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/daily%20plans.png)
+![Relaxation exercise](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/breathing.png)
 
 ---
 
@@ -84,12 +84,12 @@ We developed an intelligent and proactive mental health application tailored for
 ---
 
 ### 🗃️ Database View – DB1- shows user details
-![DB1]  (db1.png)
+![DB1](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/db1.png)
 
 ---
 
 ### 🗃️ Database View – DB2- shows daily planning database of user.
-![DB2] (db2.png)
+![DB2](https://raw.githubusercontent.com/P-PRIYA-VARSHA/VTU-Mental-Health-Application/main/db2.png)
 
 ---
 
